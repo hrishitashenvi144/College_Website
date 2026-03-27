@@ -244,17 +244,44 @@ export default function CampusMap() {
           <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(var(--border))" strokeWidth="0.5" opacity="0.4" />
           </pattern>
+          {/* Heatmap radial gradients */}
+          {HEATMAP_ZONES.map((zone, i) => (
+            <radialGradient key={`hg${i}`} id={`heatmap-${i}`} cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor={zone.level === "high" ? "rgba(239,68,68,0.25)" : "rgba(245,158,11,0.22)"} />
+              <stop offset="60%" stopColor={zone.level === "high" ? "rgba(239,68,68,0.08)" : "rgba(245,158,11,0.06)"} />
+              <stop offset="100%" stopColor="transparent" />
+            </radialGradient>
+          ))}
         </defs>
         <rect x="0" y="0" width={MAP_W} height={MAP_H} fill="url(#grid)" />
+
+        {/* Heatmap zones */}
+        {HEATMAP_ZONES.map((zone, i) => (
+          <ellipse key={`hz${i}`} cx={zone.cx} cy={zone.cy} rx={zone.rx} ry={zone.ry}
+            fill={`url(#heatmap-${i})`} style={{ mixBlendMode: "screen" }} />
+        ))}
 
         {GREENS.map((g, i) => (
           <rect key={`g${i}`} x={g.x} y={g.y} width={g.w} height={g.h} rx={g.r}
             fill="hsl(142,71%,45%)" opacity="0.15" />
         ))}
 
-        {PATHWAYS.map((p, i) => (
-          <line key={`p${i}`} x1={p.x1} y1={p.y1} x2={p.x2} y2={p.y2}
-            stroke="hsl(var(--muted-foreground))" strokeWidth="3" opacity="0.2" strokeDasharray="6 4" />
+        {/* Roads and pathways */}
+        {PATHWAYS.map((p, i) => {
+          const isRoad = (p as any).isRoad;
+          return (
+            <line key={`p${i}`} x1={p.x1} y1={p.y1} x2={p.x2} y2={p.y2}
+              stroke={isRoad ? "hsl(var(--muted-foreground))" : "hsl(var(--muted-foreground))"}
+              strokeWidth={isRoad ? 6 : 3}
+              opacity={isRoad ? 0.12 : 0.2}
+              strokeDasharray={isRoad ? undefined : "6 4"} />
+          );
+        })}
+
+        {/* Decorative objects */}
+        {MAP_OBJECTS.map((obj, i) => (
+          <text key={`obj${i}`} x={obj.x} y={obj.y} fontSize="14" textAnchor="middle" dominantBaseline="central"
+            style={{ pointerEvents: "none" }}>{obj.label}</text>
         ))}
 
         {BUILDINGS.map(b => {
