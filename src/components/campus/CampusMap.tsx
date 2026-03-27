@@ -29,7 +29,7 @@ const BUILDINGS: BuildingRect[] = [
 ];
 
 const MAP_W = 960;
-const MAP_H = 540;
+const MAP_H = 560;
 
 const PATHWAYS = [
   // Vertical connectors
