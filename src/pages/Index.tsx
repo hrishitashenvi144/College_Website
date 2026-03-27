@@ -59,20 +59,8 @@ const Home = () => {
       <PageWrapper>
         {/* Hero */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <ParticleBackground count={100} color={accentColor} />
-          <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/50 to-background" />
-          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block glass px-4 py-2 rounded-full text-sm text-primary mb-6"
-            >
-              🏆 Ranked #1 in NCR Region
-            </motion.div>
-
-            {/* Dancing Stick Figure */}
-            <DancingStickFigure />
+          <ParallaxConstellation />
+          <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/50 to-background pointer-events-none" />
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
