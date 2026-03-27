@@ -276,16 +276,16 @@ export const buildingInfo: Record<string, { name: string; description: string; f
 };
 
 export const placementStats = [
-  { company: "Google", hires: 12, avgPackage: "₹32 LPA", logo: "🔵" },
-  { company: "Microsoft", hires: 18, avgPackage: "₹28 LPA", logo: "🟦" },
-  { company: "Amazon", hires: 25, avgPackage: "₹24 LPA", logo: "🟠" },
-  { company: "Goldman Sachs", hires: 8, avgPackage: "₹35 LPA", logo: "🔷" },
-  { company: "Deloitte", hires: 30, avgPackage: "₹12 LPA", logo: "🟢" },
-  { company: "TCS", hires: 120, avgPackage: "₹7 LPA", logo: "⬛" },
-  { company: "Infosys", hires: 95, avgPackage: "₹6.5 LPA", logo: "🔹" },
-  { company: "Flipkart", hires: 15, avgPackage: "₹22 LPA", logo: "🟡" },
-  { company: "Adobe", hires: 6, avgPackage: "₹30 LPA", logo: "🔴" },
-  { company: "Tesla", hires: 3, avgPackage: "₹40 LPA", logo: "⚡" },
+  { company: "Google", hires: 12, avgPackage: "₹32 LPA", logo: "🔵", deptBreakdown: { CSE: 58, ECE: 17, IT: 15, MBA: 10 } },
+  { company: "Microsoft", hires: 18, avgPackage: "₹28 LPA", logo: "🟦", deptBreakdown: { CSE: 50, ECE: 22, IT: 17, MBA: 11 } },
+  { company: "Amazon", hires: 25, avgPackage: "₹24 LPA", logo: "🟠", deptBreakdown: { CSE: 44, MBA: 20, ECE: 16, Mech: 12, IT: 8 } },
+  { company: "Goldman Sachs", hires: 8, avgPackage: "₹35 LPA", logo: "🔷", deptBreakdown: { CSE: 38, MBA: 37, BBA: 25 } },
+  { company: "Deloitte", hires: 30, avgPackage: "₹12 LPA", logo: "🟢", deptBreakdown: { MBA: 33, CSE: 27, BBA: 20, Law: 13, IT: 7 } },
+  { company: "TCS", hires: 120, avgPackage: "₹7 LPA", logo: "⬛", deptBreakdown: { CSE: 30, ECE: 22, Mech: 18, IT: 15, Civil: 10, BBA: 5 } },
+  { company: "Infosys", hires: 95, avgPackage: "₹6.5 LPA", logo: "🔹", deptBreakdown: { CSE: 32, ECE: 24, IT: 20, Mech: 14, Civil: 10 } },
+  { company: "Flipkart", hires: 15, avgPackage: "₹22 LPA", logo: "🟡", deptBreakdown: { CSE: 47, MBA: 27, Design: 13, IT: 13 } },
+  { company: "Adobe", hires: 6, avgPackage: "₹30 LPA", logo: "🔴", deptBreakdown: { CSE: 50, Design: 33, IT: 17 } },
+  { company: "Tesla", hires: 3, avgPackage: "₹40 LPA", logo: "⚡", deptBreakdown: { Mech: 67, CSE: 33 } },
 ];
 
 export const placementHighlights = {

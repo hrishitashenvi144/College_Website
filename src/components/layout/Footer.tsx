@@ -49,7 +49,25 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="mt-10 pt-6 border-t border-border text-center text-sm text-muted-foreground">
+      {/* Accreditation Badges */}
+      <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted/50 border border-border">
+          <span className="text-xl">🏅</span>
+          <div>
+            <p className="text-xs font-bold text-foreground">NAAC A+ Accredited</p>
+            <p className="text-[10px] text-muted-foreground">National Assessment and Accreditation Council</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-muted/50 border border-border">
+          <span className="text-xl">🎖️</span>
+          <div>
+            <p className="text-xs font-bold text-foreground">NBA Accredited</p>
+            <p className="text-[10px] text-muted-foreground">National Board of Accreditation — 6 Programs</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6 pt-4 border-t border-border text-center text-sm text-muted-foreground">
         © {new Date().getFullYear()} Diastas University. All rights reserved.
       </div>
     </div>

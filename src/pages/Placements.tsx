@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageWrapper from "@/components/ui/PageWrapper";
@@ -9,7 +9,7 @@ import ScrollReveal from "@/hooks/useScrollReveal";
 import { useTheme } from "@/context/ThemeContext";
 import { useCounterAnimation } from "@/hooks/useCounterAnimation";
 import { placementStats, placementHighlights } from "@/data/data";
-import { TrendingUp, Trophy, Building2, Users, Briefcase, Star } from "lucide-react";
+import { TrendingUp, Trophy, Building2, Users, Briefcase, Star, ChevronDown, ChevronUp } from "lucide-react";
 
 const PStat = ({ label, value, suffix }: { label: string; value: number; suffix: string }) => {
   const { count, ref } = useCounterAnimation(value);
@@ -21,14 +21,18 @@ const PStat = ({ label, value, suffix }: { label: string; value: number; suffix:
   );
 };
 
-// EXP Bar Component
-const ExpBar = ({ company, hires, avgPackage, logo, index }: {
+// EXP Bar Component with department breakdown
+const ExpBar = ({ company, hires, avgPackage, logo, index, deptBreakdown }: {
   company: string; hires: number; avgPackage: string; logo: string; index: number;
+  deptBreakdown: Record<string, number>;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const maxHires = 120; // TCS has the most
+  const [expanded, setExpanded] = useState(false);
+  const maxHires = 120;
   const percentage = (hires / maxHires) * 100;
+
+  const deptColors = ["bg-primary", "bg-blue-500", "bg-emerald-500", "bg-amber-500", "bg-purple-500", "bg-rose-500"];
 
   return (
     <motion.div
@@ -39,17 +43,25 @@ const ExpBar = ({ company, hires, avgPackage, logo, index }: {
       className="group"
     >
       <GlowCard className="!p-4">
-        <div className="flex items-center gap-3 mb-2">
-          <span className="text-2xl">{logo}</span>
-          <div className="flex-1">
-            <h3 className="font-heading font-semibold text-foreground text-sm">{company}</h3>
-            <p className="text-xs text-muted-foreground">{avgPackage} avg</p>
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="w-full text-left"
+        >
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-2xl">{logo}</span>
+            <div className="flex-1">
+              <h3 className="font-heading font-semibold text-foreground text-sm">{company}</h3>
+              <p className="text-xs text-muted-foreground">{avgPackage} avg</p>
+            </div>
+            <div className="text-right flex items-center gap-2">
+              <div>
+                <span className="text-primary font-heading font-bold text-lg">{hires}</span>
+                <span className="text-xs text-muted-foreground ml-1">hires</span>
+              </div>
+              {expanded ? <ChevronUp className="w-4 h-4 text-muted-foreground" /> : <ChevronDown className="w-4 h-4 text-muted-foreground" />}
+            </div>
           </div>
-          <div className="text-right">
-            <span className="text-primary font-heading font-bold text-lg">{hires}</span>
-            <span className="text-xs text-muted-foreground ml-1">hires</span>
-          </div>
-        </div>
+        </button>
         {/* EXP Bar */}
         <div className="relative h-6 bg-muted rounded-full overflow-hidden">
           <motion.div
@@ -62,7 +74,6 @@ const ExpBar = ({ company, hires, avgPackage, logo, index }: {
               EXP {Math.round(percentage)}%
             </span>
           </motion.div>
-          {/* Shimmer effect */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
             initial={{ x: "-100%" }}
@@ -70,6 +81,36 @@ const ExpBar = ({ company, hires, avgPackage, logo, index }: {
             transition={{ delay: index * 0.1 + 1.3, duration: 0.8 }}
           />
         </div>
+        {/* Department Breakdown */}
+        <AnimatePresence>
+          {expanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <div className="mt-3 pt-3 border-t border-border space-y-2">
+                <p className="text-xs font-medium text-muted-foreground mb-2">Department-wise Placement %</p>
+                {Object.entries(deptBreakdown).map(([dept, pct], i) => (
+                  <div key={dept} className="flex items-center gap-2">
+                    <span className="text-xs text-foreground w-12 shrink-0">{dept}</span>
+                    <div className="flex-1 h-4 bg-muted rounded-full overflow-hidden">
+                      <motion.div
+                        className={`h-full rounded-full ${deptColors[i % deptColors.length]}`}
+                        initial={{ width: 0 }}
+                        animate={{ width: `${pct}%` }}
+                        transition={{ delay: i * 0.1, duration: 0.6 }}
+                      />
+                    </div>
+                    <span className="text-xs font-bold text-foreground w-10 text-right">{pct}%</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </GlowCard>
     </motion.div>
   );
