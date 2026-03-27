@@ -21,12 +21,12 @@ const contactSchema = z.object({
 });
 
 const deptContacts = [
-  { name: "Admissions Office", phone: "+91-120-2344000", email: "admissions@gu.edu.in" },
-  { name: "Academic Affairs", phone: "+91-120-2344001", email: "academics@gu.edu.in" },
-  { name: "Research Office", phone: "+91-120-2344002", email: "research@gu.edu.in" },
-  { name: "Alumni Relations", phone: "+91-120-2344003", email: "alumni@gu.edu.in" },
-  { name: "International Relations", phone: "+91-120-2344004", email: "international@gu.edu.in" },
-  { name: "Finance Department", phone: "+91-120-2344005", email: "finance@gu.edu.in" },
+  { name: "Admissions Office", phone: "+91-120-2344000", email: "admissions@diastas.edu.in" },
+  { name: "Academic Affairs", phone: "+91-120-2344001", email: "academics@diastas.edu.in" },
+  { name: "Research Office", phone: "+91-120-2344002", email: "research@diastas.edu.in" },
+  { name: "Alumni Relations", phone: "+91-120-2344003", email: "alumni@diastas.edu.in" },
+  { name: "International Relations", phone: "+91-120-2344004", email: "international@diastas.edu.in" },
+  { name: "Finance Department", phone: "+91-120-2344005", email: "finance@diastas.edu.in" },
 ];
 
 const Contact = () => {
