@@ -61,6 +61,15 @@ const Home = () => {
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <ParallaxConstellation />
           <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/50 to-background pointer-events-none" />
+          <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-block glass px-4 py-2 rounded-full text-sm text-primary mb-6"
+            >
+              ✨ Hover the stars to discover achievements
+            </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
