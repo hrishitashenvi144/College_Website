@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronDown, GraduationCap, BookOpen, FlaskConical, MapPin, Users, Award, ArrowRight, TrendingUp } from "lucide-react";
 import ParticleBackground from "@/components/ui/ParticleBackground";
+import ParallaxConstellation from "@/components/hero/ParallaxConstellation";
 import GlowCard from "@/components/ui/GlowCard";
 import StatsCounter from "@/components/shared/StatsCounter";
 import AnnouncementTicker from "@/components/shared/AnnouncementTicker";
