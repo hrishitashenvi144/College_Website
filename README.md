@@ -115,8 +115,6 @@ src/
 
 * Node.js 18+
 * npm or yarn
-* Vercel CLI (for local serverless function testing)
-
 ### Installation
 
 ```bash
@@ -407,6 +405,9 @@ All mock data lives in `src/data/data.js` as named exports:
 3. Deploy
 
 The serverless function is automatically picked up by Lovable.
+
+Deployment link: 
+https://diastas.lovable.app/
 
 \---
 
