@@ -13,6 +13,7 @@ const navLinks = [
   { path: "/placements", label: "Placements" },
   { path: "/campus", label: "Campus" },
   { path: "/alumni", label: "Alumni" },
+  { path: "/circulars", label: "Circulars" },
   { path: "/contact", label: "Contact" },
 ];
 
