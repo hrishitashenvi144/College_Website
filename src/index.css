@@ -244,6 +244,16 @@
   50% { transform: scaleY(1); }
 }
 
+@keyframes legLeft {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(25deg); }
+}
+
+@keyframes legRight {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-25deg); }
+}
+
 @keyframes scale-tip {
   0%, 100% { transform: rotate(0deg); }
   25% { transform: rotate(8deg); }
