@@ -32,6 +32,7 @@ const MAP_W = 960;
 const MAP_H = 540;
 
 const PATHWAYS = [
+  // Vertical connectors
   { x1: 160, y1: 160, x2: 160, y2: 220 },
   { x1: 380, y1: 160, x2: 360, y2: 220 },
   { x1: 590, y1: 150, x2: 575, y2: 210 },
@@ -39,6 +40,7 @@ const PATHWAYS = [
   { x1: 360, y1: 310, x2: 330, y2: 390 },
   { x1: 575, y1: 320, x2: 520, y2: 380 },
   { x1: 785, y1: 320, x2: 720, y2: 380 },
+  // Horizontal connectors
   { x1: 240, y1: 110, x2: 300, y2: 110 },
   { x1: 460, y1: 100, x2: 520, y2: 100 },
   { x1: 660, y1: 100, x2: 720, y2: 100 },
@@ -48,6 +50,14 @@ const PATHWAYS = [
   { x1: 210, y1: 430, x2: 270, y2: 430 },
   { x1: 390, y1: 430, x2: 450, y2: 430 },
   { x1: 590, y1: 430, x2: 650, y2: 430 },
+  // Main roads (wider)
+  { x1: 60, y1: 185, x2: 900, y2: 185, isRoad: true },
+  { x1: 60, y1: 355, x2: 900, y2: 355, isRoad: true },
+  { x1: 480, y1: 30, x2: 480, y2: 510, isRoad: true },
+  // Extra cross paths
+  { x1: 160, y1: 470, x2: 160, y2: 510 },
+  { x1: 720, y1: 480, x2: 720, y2: 510 },
+  { x1: 80, y1: 510, x2: 900, y2: 510, isRoad: true },
 ];
 
 const GREENS = [
@@ -55,6 +65,40 @@ const GREENS = [
   { x: 870, y: 390, w: 60, h: 90, r: 14 },
   { x: 450, y: 160, w: 30, h: 40, r: 10 },
   { x: 200, y: 330, w: 50, h: 40, r: 10 },
+  // Extra green areas
+  { x: 30, y: 30, w: 40, h: 30, r: 8 },
+  { x: 30, y: 480, w: 40, h: 40, r: 10 },
+  { x: 500, y: 490, w: 45, h: 30, r: 8 },
+  { x: 850, y: 180, w: 50, h: 50, r: 12 },
+];
+
+// Decorative objects (benches, fountains, parking)
+const MAP_OBJECTS = [
+  { type: "fountain", x: 480, y: 270, label: "🌊" },
+  { type: "bench", x: 250, y: 185, label: "🪑" },
+  { type: "bench", x: 640, y: 355, label: "🪑" },
+  { type: "parking", x: 870, y: 270, label: "🅿️" },
+  { type: "parking", x: 30, y: 270, label: "🅿️" },
+  { type: "tree", x: 890, y: 80, label: "🌳" },
+  { type: "tree", x: 890, y: 420, label: "🌳" },
+  { type: "tree", x: 45, y: 40, label: "🌳" },
+  { type: "gate", x: 480, y: 525, label: "🚪" },
+];
+
+// Heatmap zones: activity hotspots
+const HEATMAP_ZONES = [
+  // High activity - red
+  { cx: 160, cy: 110, rx: 100, ry: 70, color: "rgba(239, 68, 68, 0.12)", level: "high" },
+  { cx: 380, cy: 110, rx: 100, ry: 70, color: "rgba(239, 68, 68, 0.10)", level: "high" },
+  { cx: 145, cy: 430, rx: 80, ry: 55, color: "rgba(239, 68, 68, 0.11)", level: "high" },
+  { cx: 575, cy: 265, rx: 110, ry: 75, color: "rgba(239, 68, 68, 0.09)", level: "high" },
+  // Medium activity - yellow/amber
+  { cx: 590, cy: 105, rx: 90, ry: 60, color: "rgba(245, 158, 11, 0.10)", level: "medium" },
+  { cx: 360, cy: 265, rx: 90, ry: 60, color: "rgba(245, 158, 11, 0.09)", level: "medium" },
+  { cx: 800, cy: 260, rx: 100, ry: 80, color: "rgba(245, 158, 11, 0.10)", level: "medium" },
+  { cx: 520, cy: 430, rx: 80, ry: 65, color: "rgba(245, 158, 11, 0.08)", level: "medium" },
+  { cx: 720, cy: 430, rx: 90, ry: 65, color: "rgba(245, 158, 11, 0.08)", level: "medium" },
+  { cx: 330, cy: 430, rx: 70, ry: 50, color: "rgba(245, 158, 11, 0.07)", level: "medium" },
 ];
 
 function StickFigure({ x, y, facing, walking }: { x: number; y: number; facing: number; walking: boolean }) {
