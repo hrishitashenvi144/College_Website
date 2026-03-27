@@ -17,6 +17,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Alumni = lazy(() => import("./pages/Alumni"));
 const Campus = lazy(() => import("./pages/Campus"));
 const Placements = lazy(() => import("./pages/Placements"));
+const Circulars = lazy(() => import("./pages/Circulars"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
