@@ -29,9 +29,10 @@ const BUILDINGS: BuildingRect[] = [
 ];
 
 const MAP_W = 960;
-const MAP_H = 540;
+const MAP_H = 560;
 
 const PATHWAYS = [
+  // Vertical connectors
   { x1: 160, y1: 160, x2: 160, y2: 220 },
   { x1: 380, y1: 160, x2: 360, y2: 220 },
   { x1: 590, y1: 150, x2: 575, y2: 210 },
@@ -39,6 +40,7 @@ const PATHWAYS = [
   { x1: 360, y1: 310, x2: 330, y2: 390 },
   { x1: 575, y1: 320, x2: 520, y2: 380 },
   { x1: 785, y1: 320, x2: 720, y2: 380 },
+  // Horizontal connectors
   { x1: 240, y1: 110, x2: 300, y2: 110 },
   { x1: 460, y1: 100, x2: 520, y2: 100 },
   { x1: 660, y1: 100, x2: 720, y2: 100 },
@@ -48,6 +50,14 @@ const PATHWAYS = [
   { x1: 210, y1: 430, x2: 270, y2: 430 },
   { x1: 390, y1: 430, x2: 450, y2: 430 },
   { x1: 590, y1: 430, x2: 650, y2: 430 },
+  // Main roads (wider)
+  { x1: 60, y1: 185, x2: 900, y2: 185, isRoad: true },
+  { x1: 60, y1: 355, x2: 900, y2: 355, isRoad: true },
+  { x1: 480, y1: 30, x2: 480, y2: 510, isRoad: true },
+  // Extra cross paths
+  { x1: 160, y1: 470, x2: 160, y2: 510 },
+  { x1: 720, y1: 480, x2: 720, y2: 510 },
+  { x1: 80, y1: 510, x2: 900, y2: 510, isRoad: true },
 ];
 
 const GREENS = [
@@ -55,6 +65,40 @@ const GREENS = [
   { x: 870, y: 390, w: 60, h: 90, r: 14 },
   { x: 450, y: 160, w: 30, h: 40, r: 10 },
   { x: 200, y: 330, w: 50, h: 40, r: 10 },
+  // Extra green areas
+  { x: 30, y: 30, w: 40, h: 30, r: 8 },
+  { x: 30, y: 480, w: 40, h: 40, r: 10 },
+  { x: 500, y: 490, w: 45, h: 30, r: 8 },
+  { x: 850, y: 180, w: 50, h: 50, r: 12 },
+];
+
+// Decorative objects (benches, fountains, parking)
+const MAP_OBJECTS = [
+  { type: "fountain", x: 480, y: 270, label: "🌊" },
+  { type: "bench", x: 250, y: 185, label: "🪑" },
+  { type: "bench", x: 640, y: 355, label: "🪑" },
+  { type: "parking", x: 870, y: 270, label: "🅿️" },
+  { type: "parking", x: 30, y: 270, label: "🅿️" },
+  { type: "tree", x: 890, y: 80, label: "🌳" },
+  { type: "tree", x: 890, y: 420, label: "🌳" },
+  { type: "tree", x: 45, y: 40, label: "🌳" },
+  { type: "gate", x: 480, y: 525, label: "🚪" },
+];
+
+// Heatmap zones: activity hotspots
+const HEATMAP_ZONES = [
+  // High activity - red
+  { cx: 160, cy: 110, rx: 100, ry: 70, color: "rgba(239, 68, 68, 0.12)", level: "high" },
+  { cx: 380, cy: 110, rx: 100, ry: 70, color: "rgba(239, 68, 68, 0.10)", level: "high" },
+  { cx: 145, cy: 430, rx: 80, ry: 55, color: "rgba(239, 68, 68, 0.11)", level: "high" },
+  { cx: 575, cy: 265, rx: 110, ry: 75, color: "rgba(239, 68, 68, 0.09)", level: "high" },
+  // Medium activity - yellow/amber
+  { cx: 590, cy: 105, rx: 90, ry: 60, color: "rgba(245, 158, 11, 0.10)", level: "medium" },
+  { cx: 360, cy: 265, rx: 90, ry: 60, color: "rgba(245, 158, 11, 0.09)", level: "medium" },
+  { cx: 800, cy: 260, rx: 100, ry: 80, color: "rgba(245, 158, 11, 0.10)", level: "medium" },
+  { cx: 520, cy: 430, rx: 80, ry: 65, color: "rgba(245, 158, 11, 0.08)", level: "medium" },
+  { cx: 720, cy: 430, rx: 90, ry: 65, color: "rgba(245, 158, 11, 0.08)", level: "medium" },
+  { cx: 330, cy: 430, rx: 70, ry: 50, color: "rgba(245, 158, 11, 0.07)", level: "medium" },
 ];
 
 function StickFigure({ x, y, facing, walking }: { x: number; y: number; facing: number; walking: boolean }) {
@@ -200,17 +244,44 @@ export default function CampusMap() {
           <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(var(--border))" strokeWidth="0.5" opacity="0.4" />
           </pattern>
+          {/* Heatmap radial gradients */}
+          {HEATMAP_ZONES.map((zone, i) => (
+            <radialGradient key={`hg${i}`} id={`heatmap-${i}`} cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor={zone.level === "high" ? "rgba(239,68,68,0.25)" : "rgba(245,158,11,0.22)"} />
+              <stop offset="60%" stopColor={zone.level === "high" ? "rgba(239,68,68,0.08)" : "rgba(245,158,11,0.06)"} />
+              <stop offset="100%" stopColor="transparent" />
+            </radialGradient>
+          ))}
         </defs>
         <rect x="0" y="0" width={MAP_W} height={MAP_H} fill="url(#grid)" />
+
+        {/* Heatmap zones */}
+        {HEATMAP_ZONES.map((zone, i) => (
+          <ellipse key={`hz${i}`} cx={zone.cx} cy={zone.cy} rx={zone.rx} ry={zone.ry}
+            fill={`url(#heatmap-${i})`} style={{ mixBlendMode: "screen" }} />
+        ))}
 
         {GREENS.map((g, i) => (
           <rect key={`g${i}`} x={g.x} y={g.y} width={g.w} height={g.h} rx={g.r}
             fill="hsl(142,71%,45%)" opacity="0.15" />
         ))}
 
-        {PATHWAYS.map((p, i) => (
-          <line key={`p${i}`} x1={p.x1} y1={p.y1} x2={p.x2} y2={p.y2}
-            stroke="hsl(var(--muted-foreground))" strokeWidth="3" opacity="0.2" strokeDasharray="6 4" />
+        {/* Roads and pathways */}
+        {PATHWAYS.map((p, i) => {
+          const isRoad = (p as any).isRoad;
+          return (
+            <line key={`p${i}`} x1={p.x1} y1={p.y1} x2={p.x2} y2={p.y2}
+              stroke={isRoad ? "hsl(var(--muted-foreground))" : "hsl(var(--muted-foreground))"}
+              strokeWidth={isRoad ? 6 : 3}
+              opacity={isRoad ? 0.12 : 0.2}
+              strokeDasharray={isRoad ? undefined : "6 4"} />
+          );
+        })}
+
+        {/* Decorative objects */}
+        {MAP_OBJECTS.map((obj, i) => (
+          <text key={`obj${i}`} x={obj.x} y={obj.y} fontSize="14" textAnchor="middle" dominantBaseline="central"
+            style={{ pointerEvents: "none" }}>{obj.label}</text>
         ))}
 
         {BUILDINGS.map(b => {
@@ -272,6 +343,19 @@ export default function CampusMap() {
         <button onClick={() => setZoom(z => Math.max(0.5, z - 0.3))} className="glass w-8 h-8 flex items-center justify-center text-foreground hover:text-primary transition-colors">
           <ZoomOut size={16} />
         </button>
+      </div>
+
+      {/* Heatmap legend */}
+      <div className="absolute top-3 right-3 glass px-3 py-2 text-[10px] space-y-1">
+        <div className="font-semibold text-foreground text-[11px] mb-1">Activity</div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-3 h-3 rounded-full bg-red-500/30 border border-red-500/50" />
+          <span className="text-muted-foreground">High</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-3 h-3 rounded-full bg-amber-500/30 border border-amber-500/50" />
+          <span className="text-muted-foreground">Medium</span>
+        </div>
       </div>
 
       <div className="absolute bottom-3 left-3 glass px-3 py-1.5 text-[10px] text-muted-foreground">
