@@ -32,7 +32,7 @@ const ThemeContext = createContext<ThemeContextType>({
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    return (localStorage.getItem("gu-theme") as Theme) || "dark";
+    return (localStorage.getItem("diastas-theme") as Theme) || "dark";
   });
 
   useEffect(() => {
