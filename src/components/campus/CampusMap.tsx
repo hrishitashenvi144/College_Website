@@ -345,6 +345,19 @@ export default function CampusMap() {
         </button>
       </div>
 
+      {/* Heatmap legend */}
+      <div className="absolute top-3 right-3 glass px-3 py-2 text-[10px] space-y-1">
+        <div className="font-semibold text-foreground text-[11px] mb-1">Activity</div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-3 h-3 rounded-full bg-red-500/30 border border-red-500/50" />
+          <span className="text-muted-foreground">High</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="w-3 h-3 rounded-full bg-amber-500/30 border border-amber-500/50" />
+          <span className="text-muted-foreground">Medium</span>
+        </div>
+      </div>
+
       <div className="absolute bottom-3 left-3 glass px-3 py-1.5 text-[10px] text-muted-foreground">
         Click to move · WASD/Arrows · Click buildings to explore
       </div>
