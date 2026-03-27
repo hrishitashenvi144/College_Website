@@ -10,6 +10,7 @@ const navLinks = [
   { path: "/research", label: "Research" },
   { path: "/about", label: "About" },
   { path: "/admissions", label: "Admissions" },
+  { path: "/placements", label: "Placements" },
   { path: "/campus", label: "Campus" },
   { path: "/alumni", label: "Alumni" },
   { path: "/contact", label: "Contact" },
@@ -38,10 +39,10 @@ const Navbar = () => {
         <div className="container mx-auto px-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center font-bold text-primary-foreground text-lg font-sans">
-              G
+              D
             </div>
             <span className="font-heading font-semibold text-foreground hidden sm:block group-hover:text-primary transition-colors">
-              Galgotias University
+              Diastas University
             </span>
           </Link>
 

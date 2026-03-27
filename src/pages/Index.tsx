@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ChevronDown, GraduationCap, BookOpen, FlaskConical, MapPin, Users, Award, ArrowRight } from "lucide-react";
+import { ChevronDown, GraduationCap, BookOpen, FlaskConical, MapPin, Users, Award, ArrowRight, TrendingUp } from "lucide-react";
 import ParticleBackground from "@/components/ui/ParticleBackground";
 import GlowCard from "@/components/ui/GlowCard";
 import StatsCounter from "@/components/shared/StatsCounter";
@@ -25,8 +25,96 @@ const quickLinks = [
   { label: "Research", icon: FlaskConical, path: "/research", desc: "Innovation at its best" },
   { label: "Campus Tour", icon: MapPin, path: "/campus", desc: "Explore our campus" },
   { label: "Alumni", icon: Users, path: "/alumni", desc: "Join our network" },
-  { label: "Scholarships", icon: Award, path: "/admissions", desc: "Financial support" },
+  { label: "Placements", icon: TrendingUp, path: "/placements", desc: "95% placement rate" },
 ];
+
+// Dancing Stick Figure Component
+const DancingStickFigure = () => {
+  return (
+    <motion.svg
+      width="120"
+      height="180"
+      viewBox="0 0 120 180"
+      className="mx-auto mb-6"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+    >
+      {/* Head */}
+      <motion.circle
+        cx="60" cy="30" r="14"
+        fill="hsl(var(--primary))"
+        animate={{ y: [0, -5, 0, -3, 0] }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* Eyes */}
+      <motion.circle cx="55" cy="28" r="2" fill="hsl(var(--primary-foreground))"
+        animate={{ scaleY: [1, 0.1, 1] }}
+        transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+      />
+      <motion.circle cx="65" cy="28" r="2" fill="hsl(var(--primary-foreground))"
+        animate={{ scaleY: [1, 0.1, 1] }}
+        transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
+      />
+      {/* Smile */}
+      <path d="M54 34 Q60 40 66 34" stroke="hsl(var(--primary-foreground))" strokeWidth="1.5" fill="none" />
+      {/* Body */}
+      <motion.line
+        x1="60" y1="44" x2="60" y2="100"
+        stroke="hsl(var(--primary))" strokeWidth="3" strokeLinecap="round"
+        animate={{ x2: [60, 62, 60, 58, 60] }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* Left Arm - floss dance */}
+      <motion.line
+        x1="60" y1="60" x2="30" y2="75"
+        stroke="hsl(var(--foreground))" strokeWidth="2.5" strokeLinecap="round"
+        animate={{
+          x2: [30, 90, 30, 90, 30],
+          y2: [75, 55, 75, 55, 75],
+        }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* Right Arm - floss dance (opposite) */}
+      <motion.line
+        x1="60" y1="60" x2="90" y2="75"
+        stroke="hsl(var(--foreground))" strokeWidth="2.5" strokeLinecap="round"
+        animate={{
+          x2: [90, 30, 90, 30, 90],
+          y2: [55, 75, 55, 75, 55],
+        }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* Left Leg */}
+      <motion.line
+        x1="60" y1="100" x2="40" y2="150"
+        stroke="hsl(var(--foreground))" strokeWidth="2.5" strokeLinecap="round"
+        animate={{
+          x2: [40, 50, 40, 50, 40],
+        }}
+        transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* Right Leg */}
+      <motion.line
+        x1="60" y1="100" x2="80" y2="150"
+        stroke="hsl(var(--foreground))" strokeWidth="2.5" strokeLinecap="round"
+        animate={{
+          x2: [80, 70, 80, 70, 80],
+        }}
+        transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* Shoes */}
+      <motion.ellipse cx="40" cy="152" rx="8" ry="4" fill="hsl(var(--primary))"
+        animate={{ cx: [40, 50, 40, 50, 40] }}
+        transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.ellipse cx="80" cy="152" rx="8" ry="4" fill="hsl(var(--primary))"
+        animate={{ cx: [80, 70, 80, 70, 80] }}
+        transition={{ duration: 0.6, repeat: Infinity, ease: "easeInOut" }}
+      />
+    </motion.svg>
+  );
+};
 
 const Home = () => {
   const { accentColor } = useTheme();
@@ -68,6 +156,9 @@ const Home = () => {
               🏆 Ranked #1 in NCR Region
             </motion.div>
 
+            {/* Dancing Stick Figure */}
+            <DancingStickFigure />
+
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -75,7 +166,7 @@ const Home = () => {
               className="font-heading text-5xl sm:text-7xl lg:text-8xl font-bold text-foreground mb-6"
               style={{ animation: "glitch 4s infinite" }}
             >
-              GALGOTIAS
+              DIASTAS
               <br />
               <span className="text-primary">UNIVERSITY</span>
             </motion.h1>

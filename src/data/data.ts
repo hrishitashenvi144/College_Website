@@ -102,27 +102,27 @@ export const departments = [
 ];
 
 export const faculty = [
-  { id: 1, name: "Dr. Priya Sharma", dept: "cse", designation: "Professor & Head", bio: "20+ years in AI research with publications in top-tier journals.", publications: 87, email: "priya.sharma@gu.edu.in" },
-  { id: 2, name: "Dr. Rajesh Kumar", dept: "cse", designation: "Associate Professor", bio: "Expert in cybersecurity and network protocols.", publications: 45, email: "rajesh.kumar@gu.edu.in" },
-  { id: 3, name: "Dr. Anita Verma", dept: "mech", designation: "Professor & Head", bio: "Pioneer in sustainable manufacturing and green engineering.", publications: 62, email: "anita.verma@gu.edu.in" },
-  { id: 4, name: "Dr. Suresh Patel", dept: "med", designation: "Professor & Dean", bio: "Renowned cardiologist with 25+ years of clinical experience.", publications: 110, email: "suresh.patel@gu.edu.in" },
-  { id: 5, name: "Prof. Meera Joshi", dept: "arts", designation: "Associate Professor", bio: "Award-winning visual artist and design thinker.", publications: 23, email: "meera.joshi@gu.edu.in" },
-  { id: 6, name: "Dr. Vikram Singh", dept: "biz", designation: "Professor & Director", bio: "Former McKinsey consultant, expert in strategic management.", publications: 58, email: "vikram.singh@gu.edu.in" },
-  { id: 7, name: "Dr. Kavita Nair", dept: "law", designation: "Professor & Dean", bio: "Constitutional law expert, former High Court advocate.", publications: 41, email: "kavita.nair@gu.edu.in" },
-  { id: 8, name: "Dr. Amit Bhatt", dept: "physics", designation: "Professor & Head", bio: "Quantum physics researcher with breakthrough discoveries.", publications: 95, email: "amit.bhatt@gu.edu.in" },
-  { id: 9, name: "Dr. Neha Gupta", dept: "cse", designation: "Assistant Professor", bio: "Machine learning specialist focused on NLP applications.", publications: 32, email: "neha.gupta@gu.edu.in" },
-  { id: 10, name: "Dr. Ravi Tiwari", dept: "intl", designation: "Professor & Head", bio: "Diplomat turned academic with expertise in South Asian politics.", publications: 38, email: "ravi.tiwari@gu.edu.in" },
+  { id: 1, name: "Dr. Priya Sharma", dept: "cse", designation: "Professor & Head", bio: "20+ years in AI research with publications in top-tier journals.", publications: 87, email: "priya.sharma@diastas.edu.in" },
+  { id: 2, name: "Dr. Rajesh Kumar", dept: "cse", designation: "Associate Professor", bio: "Expert in cybersecurity and network protocols.", publications: 45, email: "rajesh.kumar@diastas.edu.in" },
+  { id: 3, name: "Dr. Anita Verma", dept: "mech", designation: "Professor & Head", bio: "Pioneer in sustainable manufacturing and green engineering.", publications: 62, email: "anita.verma@diastas.edu.in" },
+  { id: 4, name: "Dr. Suresh Patel", dept: "med", designation: "Professor & Dean", bio: "Renowned cardiologist with 25+ years of clinical experience.", publications: 110, email: "suresh.patel@diastas.edu.in" },
+  { id: 5, name: "Prof. Meera Joshi", dept: "arts", designation: "Associate Professor", bio: "Award-winning visual artist and design thinker.", publications: 23, email: "meera.joshi@diastas.edu.in" },
+  { id: 6, name: "Dr. Vikram Singh", dept: "biz", designation: "Professor & Director", bio: "Former McKinsey consultant, expert in strategic management.", publications: 58, email: "vikram.singh@diastas.edu.in" },
+  { id: 7, name: "Dr. Kavita Nair", dept: "law", designation: "Professor & Dean", bio: "Constitutional law expert, former High Court advocate.", publications: 41, email: "kavita.nair@diastas.edu.in" },
+  { id: 8, name: "Dr. Amit Bhatt", dept: "physics", designation: "Professor & Head", bio: "Quantum physics researcher with breakthrough discoveries.", publications: 95, email: "amit.bhatt@diastas.edu.in" },
+  { id: 9, name: "Dr. Neha Gupta", dept: "cse", designation: "Assistant Professor", bio: "Machine learning specialist focused on NLP applications.", publications: 32, email: "neha.gupta@diastas.edu.in" },
+  { id: 10, name: "Dr. Ravi Tiwari", dept: "intl", designation: "Professor & Head", bio: "Diplomat turned academic with expertise in South Asian politics.", publications: 38, email: "ravi.tiwari@diastas.edu.in" },
 ];
 
 export const alumni = [
-  { id: 1, name: "Aakash Mehta", batch: 2015, dept: "cse", company: "Google", role: "Senior Software Engineer", story: "From coding in the GU labs to building products used by billions at Google.", achievement: "Led the development of a key Google Cloud feature.", linkedIn: "#" },
-  { id: 2, name: "Sneha Kapoor", batch: 2016, dept: "biz", company: "Goldman Sachs", role: "Vice President", story: "MBA from GU opened doors to Wall Street and beyond.", achievement: "Youngest VP in the Mumbai office.", linkedIn: "#" },
-  { id: 3, name: "Rahul Desai", batch: 2014, dept: "cse", company: "Microsoft", role: "Principal Engineer", story: "Started with a passion for open source during GU days.", achievement: "Core contributor to Azure AI services.", linkedIn: "#" },
-  { id: 4, name: "Priya Reddy", batch: 2017, dept: "med", company: "AIIMS Delhi", role: "Senior Resident", story: "GU's medical program laid the foundation for her career in cardiology.", achievement: "Published groundbreaking research on cardiac imaging.", linkedIn: "#" },
-  { id: 5, name: "Vikash Yadav", batch: 2013, dept: "mech", company: "Tesla", role: "Manufacturing Lead", story: "From GU's workshop to Tesla's Gigafactory.", achievement: "Optimized production line efficiency by 40%.", linkedIn: "#" },
-  { id: 6, name: "Anjali Bhatt", batch: 2018, dept: "law", company: "Supreme Court of India", role: "Advocate", story: "Won the national moot court during GU years.", achievement: "Argued landmark environmental case.", linkedIn: "#" },
+  { id: 1, name: "Aakash Mehta", batch: 2015, dept: "cse", company: "Google", role: "Senior Software Engineer", story: "From coding in the Diastas labs to building products used by billions at Google.", achievement: "Led the development of a key Google Cloud feature.", linkedIn: "#" },
+  { id: 2, name: "Sneha Kapoor", batch: 2016, dept: "biz", company: "Goldman Sachs", role: "Vice President", story: "MBA from Diastas opened doors to Wall Street and beyond.", achievement: "Youngest VP in the Mumbai office.", linkedIn: "#" },
+  { id: 3, name: "Rahul Desai", batch: 2014, dept: "cse", company: "Microsoft", role: "Principal Engineer", story: "Started with a passion for open source during Diastas days.", achievement: "Core contributor to Azure AI services.", linkedIn: "#" },
+  { id: 4, name: "Priya Reddy", batch: 2017, dept: "med", company: "AIIMS Delhi", role: "Senior Resident", story: "Diastas's medical program laid the foundation for her career in cardiology.", achievement: "Published groundbreaking research on cardiac imaging.", linkedIn: "#" },
+  { id: 5, name: "Vikash Yadav", batch: 2013, dept: "mech", company: "Tesla", role: "Manufacturing Lead", story: "From Diastas's workshop to Tesla's Gigafactory.", achievement: "Optimized production line efficiency by 40%.", linkedIn: "#" },
+  { id: 6, name: "Anjali Bhatt", batch: 2018, dept: "law", company: "Supreme Court of India", role: "Advocate", story: "Won the national moot court during Diastas years.", achievement: "Argued landmark environmental case.", linkedIn: "#" },
   { id: 7, name: "Karan Malhotra", batch: 2015, dept: "cse", company: "Startup Founder", role: "CEO, TechVenture", story: "Built a unicorn startup from the dorm room.", achievement: "Raised $50M Series B funding.", linkedIn: "#" },
-  { id: 8, name: "Divya Nair", batch: 2016, dept: "arts", company: "Adobe", role: "Senior UX Designer", story: "GU's design program sparked a passion for user-centered design.", achievement: "Designed Adobe's flagship mobile app.", linkedIn: "#" },
+  { id: 8, name: "Divya Nair", batch: 2016, dept: "arts", company: "Adobe", role: "Senior UX Designer", story: "Diastas's design program sparked a passion for user-centered design.", achievement: "Designed Adobe's flagship mobile app.", linkedIn: "#" },
 ];
 
 export const publications = [
@@ -146,7 +146,7 @@ export const researchLabs = [
 export const events = [
   { id: 1, title: "IGNITE 2025 - Annual Tech Fest", date: "March 15-17, 2025", type: "Festival", description: "Three days of coding, robotics, hackathons, and tech talks.", location: "Main Campus" },
   { id: 2, title: "International Research Symposium", date: "April 5-6, 2025", type: "Academic", description: "Global researchers present cutting-edge findings.", location: "Auditorium" },
-  { id: 3, title: "Alumni Homecoming 2025", date: "May 10, 2025", type: "Alumni", description: "Annual reunion for all GU alumni batches.", location: "Sports Complex" },
+  { id: 3, title: "Alumni Homecoming 2025", date: "May 10, 2025", type: "Alumni", description: "Annual reunion for all Diastas alumni batches.", location: "Sports Complex" },
   { id: 4, title: "Industry Connect Summit", date: "June 20, 2025", type: "Career", description: "Top companies meet top talent for internships and placements.", location: "Convention Center" },
   { id: 5, title: "Cultural Fest - UTSAV", date: "September 25-27, 2025", type: "Cultural", description: "Music, dance, drama, and art from across India.", location: "Open Air Theatre" },
   { id: 6, title: "Hackathon: Code for Change", date: "July 12-13, 2025", type: "Technical", description: "48-hour hackathon solving real-world social problems.", location: "Innovation Hub" },
@@ -157,7 +157,7 @@ export const events = [
 export const announcements = [
   "🎉 Admissions Open 2025-26 · Apply Now",
   "📢 Annual Tech Fest IGNITE 2025 — March 15-17",
-  "🏆 GU ranked Top 50 by NIRF 2024",
+  "🏆 Diastas ranked Top 50 by NIRF 2024",
   "📚 New Research Center for AI launched",
   "🌍 International collaborations with 30+ universities",
   "💼 Record placement season — 95% placement rate",
@@ -168,16 +168,16 @@ export const announcements = [
 ];
 
 export const testimonials = [
-  { name: "Arjun Patel", program: "B.Tech CSE", batch: "2024", quote: "GU transformed my passion for coding into a career at a FAANG company. The faculty mentorship was incredible.", avatar: "" },
+  { name: "Arjun Patel", program: "B.Tech CSE", batch: "2024", quote: "Diastas transformed my passion for coding into a career at a FAANG company. The faculty mentorship was incredible.", avatar: "" },
   { name: "Sanya Malhotra", program: "MBA", batch: "2023", quote: "The business school's industry connections opened doors I never imagined. I got placed at Deloitte during campus recruitment.", avatar: "" },
   { name: "Rohan Verma", program: "B.Tech Mech", batch: "2024", quote: "Working on the SAE BAJA team was the highlight of my college life. We won nationals!", avatar: "" },
   { name: "Priti Sharma", program: "BA LLB", batch: "2023", quote: "The moot court program prepared me for real courtroom advocacy. I'm now practicing at the Delhi High Court.", avatar: "" },
   { name: "Deepak Nair", program: "M.Sc Physics", batch: "2022", quote: "The quantum computing lab gave me hands-on experience that landed me a research position at CERN.", avatar: "" },
-  { name: "Aisha Khan", program: "B.Des", batch: "2024", quote: "GU's design program taught me to think creatively and solve problems. Now I'm designing products at Flipkart.", avatar: "" },
+  { name: "Aisha Khan", program: "B.Des", batch: "2024", quote: "Diastas's design program taught me to think creatively and solve problems. Now I'm designing products at Flipkart.", avatar: "" },
 ];
 
 export const timelineData = [
-  { year: 2010, title: "University Founded", description: "Galgotias University established in Greater Noida with a vision to provide world-class education." },
+  { year: 2010, title: "University Founded", description: "Diastas University established in Greater Noida with a vision to provide world-class education." },
   { year: 2012, title: "First Graduating Batch", description: "The first batch of 500 students graduated across 4 programs." },
   { year: 2015, title: "NAAC A Grade", description: "Received NAAC A Grade accreditation, recognizing academic excellence." },
   { year: 2017, title: "Research Center Established", description: "Launched the multi-disciplinary research center with ₹50Cr investment." },
@@ -188,11 +188,11 @@ export const timelineData = [
 ];
 
 export const leadershipTeam = [
-  { name: "Dr. Suneel Galgotia", designation: "Chancellor", bio: "Visionary educationist who founded Galgotias University with a mission to democratize quality education.", education: "PhD Education Policy, Oxford", publications: 45 },
+  { name: "Dr. Suneel Diastas", designation: "Chancellor", bio: "Visionary educationist who founded Diastas University with a mission to democratize quality education.", education: "PhD Education Policy, Oxford", publications: 45 },
   { name: "Dr. K. Mallikharjuna Babu", designation: "Vice Chancellor", bio: "Distinguished academician with 30+ years in higher education administration.", education: "PhD Computer Science, IIT Delhi", publications: 120 },
   { name: "Dr. Avadhesh Kumar", designation: "Pro Vice Chancellor", bio: "Expert in curriculum development and academic planning.", education: "PhD Electronics, IIT Kanpur", publications: 85 },
   { name: "Dr. Preeti Bajaj", designation: "Dean of Research", bio: "Leading researcher in signal processing and communications.", education: "PhD Signal Processing, IISc Bangalore", publications: 150 },
-  { name: "Mr. Dhruv Galgotia", designation: "CEO", bio: "Young entrepreneur driving the university's digital transformation and industry partnerships.", education: "MBA, Wharton School", publications: 12 },
+  { name: "Mr. Dhruv Diastas", designation: "CEO", bio: "Young entrepreneur driving the university's digital transformation and industry partnerships.", education: "MBA, Wharton School", publications: 12 },
   { name: "Dr. Rita Sharma", designation: "Dean of Students", bio: "Dedicated to student welfare, mental health, and holistic development.", education: "PhD Psychology, JNU", publications: 38 },
 ];
 
@@ -213,16 +213,16 @@ export const courses = [
 
 export const faqItems = [
   { question: "What are the admission requirements?", answer: "Admission requirements vary by program. Generally, undergraduate programs require 10+2 with minimum 50-60% marks. Postgraduate programs require a relevant bachelor's degree. Specific entrance exam scores (JEE, NEET, CAT, CLAT) may be required." },
-  { question: "Is hostel accommodation available?", answer: "Yes, GU offers separate hostels for boys and girls with AC and non-AC options. All hostels have Wi-Fi, mess facilities, laundry services, and 24/7 security." },
-  { question: "What is the placement record?", answer: "GU has a consistent placement rate of 90-95%. Top recruiters include Google, Microsoft, Amazon, Deloitte, Goldman Sachs, TCS, and many more. The highest package in 2024 was ₹42 LPA." },
-  { question: "Are scholarships available?", answer: "Yes, GU offers merit-based scholarships covering up to 100% tuition. Special scholarships exist for sports achievers, defense personnel wards, and economically weaker sections." },
+  { question: "Is hostel accommodation available?", answer: "Yes, Diastas offers separate hostels for boys and girls with AC and non-AC options. All hostels have Wi-Fi, mess facilities, laundry services, and 24/7 security." },
+  { question: "What is the placement record?", answer: "Diastas has a consistent placement rate of 90-95%. Top recruiters include Google, Microsoft, Amazon, Deloitte, Goldman Sachs, TCS, and many more. The highest package in 2024 was ₹42 LPA." },
+  { question: "Are scholarships available?", answer: "Yes, Diastas offers merit-based scholarships covering up to 100% tuition. Special scholarships exist for sports achievers, defense personnel wards, and economically weaker sections." },
   { question: "What is the fee structure?", answer: "Fees vary by program. B.Tech programs range from ₹1.5L to ₹2.5L per year. MBA is approximately ₹3L per year. Detailed fee structure is available on the admissions portal." },
   { question: "Can I transfer from another university?", answer: "Lateral entry and transfers are considered on a case-by-case basis. Contact the admissions office with your academic records for evaluation." },
-  { question: "What extracurricular activities are available?", answer: "GU has 50+ student clubs covering coding, robotics, music, dance, drama, sports, photography, entrepreneurship, and social service. Annual fests include IGNITE (tech) and UTSAV (cultural)." },
+  { question: "What extracurricular activities are available?", answer: "Diastas has 50+ student clubs covering coding, robotics, music, dance, drama, sports, photography, entrepreneurship, and social service. Annual fests include IGNITE (tech) and UTSAV (cultural)." },
   { question: "Is the campus Wi-Fi enabled?", answer: "Yes, the entire campus has high-speed Wi-Fi coverage including classrooms, labs, hostels, library, and common areas." },
   { question: "What research opportunities exist for undergraduates?", answer: "UG students can participate in research through the Summer Research Fellowship, faculty-guided projects, and the Innovation Hub's incubation program." },
   { question: "How do I apply for international exchange programs?", answer: "Applications for exchange programs open in January each year. Students need a minimum CGPA of 7.5 and IELTS/TOEFL scores. The International Relations Office guides the process." },
-  { question: "What medical facilities are on campus?", answer: "GU has a fully equipped medical center with doctors, nurses, and ambulance services available 24/7. A teaching hospital is adjacent to the campus." },
+  { question: "What medical facilities are on campus?", answer: "Diastas has a fully equipped medical center with doctors, nurses, and ambulance services available 24/7. A teaching hospital is adjacent to the campus." },
   { question: "How can I visit the campus?", answer: "Campus tours are available Monday to Saturday. Book a tour through the admissions portal or call the admissions office. Virtual tours are also available on our website." },
 ];
 
@@ -260,17 +260,39 @@ export const collaborations = [
   { institution: "University of Edinburgh", country: "UK", flag: "🇬🇧", type: "Exchange", year: 2021 },
 ];
 
-export const buildingInfo: Record<string, { name: string; description: string; floors: number; facilities: string[]; hours: string }> = {
-  "academic-a": { name: "Academic Block A", description: "Main academic building housing CSE, ECE, and IT departments.", floors: 6, facilities: ["Smart Classrooms", "Computer Labs", "Seminar Halls"], hours: "8:00 AM - 8:00 PM" },
-  "academic-b": { name: "Academic Block B", description: "Houses Business, Law, and Humanities departments.", floors: 5, facilities: ["Lecture Halls", "Moot Court", "Case Study Rooms"], hours: "8:00 AM - 8:00 PM" },
-  "library": { name: "Central Library", description: "State-of-the-art library with 100,000+ books and digital resources.", floors: 4, facilities: ["Reading Halls", "Digital Library", "Research Cubicles", "Rare Books Section"], hours: "7:00 AM - 11:00 PM" },
-  "admin": { name: "Administrative Block", description: "University administration, registrar, and finance offices.", floors: 3, facilities: ["Admissions Office", "Exam Cell", "Vice Chancellor Office"], hours: "9:00 AM - 5:00 PM" },
-  "auditorium": { name: "Grand Auditorium", description: "2000-seat auditorium for convocations and cultural events.", floors: 2, facilities: ["Main Stage", "Green Rooms", "AV Equipment", "VIP Lounge"], hours: "By Reservation" },
-  "sports": { name: "Sports Complex", description: "Multi-sport facility with indoor and outdoor amenities.", floors: 2, facilities: ["Swimming Pool", "Gymnasium", "Basketball Courts", "Cricket Ground"], hours: "6:00 AM - 9:00 PM" },
-  "hostel-boys": { name: "Boys Hostel", description: "Residential facility for male students with modern amenities.", floors: 8, facilities: ["AC/Non-AC Rooms", "Common Room", "Mess Hall", "Laundry"], hours: "24/7" },
-  "hostel-girls": { name: "Girls Hostel", description: "Residential facility for female students with enhanced security.", floors: 8, facilities: ["AC/Non-AC Rooms", "Common Room", "Mess Hall", "Salon"], hours: "24/7" },
-  "cafeteria": { name: "Central Cafeteria", description: "Multi-cuisine food court serving 3000+ students daily.", floors: 1, facilities: ["Food Court", "Coffee Shop", "Juice Bar", "Outdoor Seating"], hours: "7:00 AM - 10:00 PM" },
-  "medical": { name: "Medical Center", description: "24/7 healthcare facility with qualified doctors and nurses.", floors: 2, facilities: ["OPD", "Pharmacy", "Pathology Lab", "Ambulance"], hours: "24/7" },
-  "research": { name: "Research Labs Complex", description: "Houses all major research laboratories and innovation spaces.", floors: 4, facilities: ["AI Lab", "Quantum Lab", "Biomedical Lab", "Clean Room"], hours: "8:00 AM - 10:00 PM" },
-  "innovation": { name: "Innovation Hub", description: "Startup incubator and entrepreneurship center.", floors: 3, facilities: ["Co-working Space", "Prototyping Lab", "Pitch Room", "Mentoring Rooms"], hours: "9:00 AM - 9:00 PM" },
+export const buildingInfo: Record<string, { name: string; description: string; funnyDesc: string; floors: number; facilities: string[]; hours: string; funnyImage: string }> = {
+  "academic-a": { name: "Academic Block A", description: "Main academic building housing CSE, ECE, and IT departments.", funnyDesc: "Where students master the art of sleeping with their eyes open during 8 AM lectures. The WiFi here runs on pure desperation.", funnyImage: "💤", floors: 6, facilities: ["Smart Classrooms", "Computer Labs", "Seminar Halls"], hours: "8:00 AM - 8:00 PM" },
+  "academic-b": { name: "Academic Block B", description: "Houses Business, Law, and Humanities departments.", funnyDesc: "Where calculators cry and whiteboards never have enough markers. Warning: Math anxiety zone ahead!", funnyImage: "🤯", floors: 5, facilities: ["Lecture Halls", "Moot Court", "Case Study Rooms"], hours: "8:00 AM - 8:00 PM" },
+  "library": { name: "Central Library", description: "State-of-the-art library with 100,000+ books and digital resources.", funnyDesc: "SHHHHHENCE! The only place where silence is enforced with the fury of a thousand librarians. Also doubles as a nap sanctuary.", funnyImage: "📢", floors: 4, facilities: ["Reading Halls", "Digital Library", "Research Cubicles", "Rare Books Section"], hours: "7:00 AM - 11:00 PM" },
+  "admin": { name: "Administrative Block", description: "University administration, registrar, and finance offices.", funnyDesc: "The legendary maze where paperwork goes to multiply. Bring snacks, you might be here a while.", funnyImage: "📋", floors: 3, facilities: ["Admissions Office", "Exam Cell", "Vice Chancellor Office"], hours: "9:00 AM - 5:00 PM" },
+  "auditorium": { name: "Grand Auditorium", description: "2000-seat auditorium for convocations and cultural events.", funnyDesc: "Where freshers discover stage fright and seniors discover they're surprisingly good at lip-syncing.", funnyImage: "🎭", floors: 2, facilities: ["Main Stage", "Green Rooms", "AV Equipment", "VIP Lounge"], hours: "By Reservation" },
+  "sports": { name: "Sports Complex", description: "Multi-sport facility with indoor and outdoor amenities.", funnyDesc: "The only place where 'I'll start going tomorrow' has been said 10,000 times. Gym mirrors have seen things.", funnyImage: "💪", floors: 2, facilities: ["Swimming Pool", "Gymnasium", "Basketball Courts", "Cricket Ground"], hours: "6:00 AM - 9:00 PM" },
+  "hostel-boys": { name: "Boys Hostel", description: "Residential facility for male students with modern amenities.", funnyDesc: "24/7 chaos factory. Maggi at 3 AM is a constitutional right here. The common room TV remote is a weapon of mass argument.", funnyImage: "🍜", floors: 8, facilities: ["AC/Non-AC Rooms", "Common Room", "Mess Hall", "Laundry"], hours: "24/7" },
+  "hostel-girls": { name: "Girls Hostel", description: "Residential facility for female students with enhanced security.", funnyDesc: "Fort Knox has less security. But inside? Absolute party central after 10 PM. The mess food reviews are legendary.", funnyImage: "🏰", floors: 8, facilities: ["AC/Non-AC Rooms", "Common Room", "Mess Hall", "Salon"], hours: "24/7" },
+  "cafeteria": { name: "Central Cafeteria", description: "Multi-cuisine food court serving 3000+ students daily.", funnyDesc: "Where 'bhai ek plate momos' is the national anthem. The samosa guy is basically a celebrity.", funnyImage: "🥟", floors: 1, facilities: ["Food Court", "Coffee Shop", "Juice Bar", "Outdoor Seating"], hours: "7:00 AM - 10:00 PM" },
+  "medical": { name: "Medical Center", description: "24/7 healthcare facility with qualified doctors and nurses.", funnyDesc: "Your headache is either from studying too hard or too little. Either way, paracetamol is the answer.", funnyImage: "💊", floors: 2, facilities: ["OPD", "Pharmacy", "Pathology Lab", "Ambulance"], hours: "24/7" },
+  "research": { name: "Research Labs Complex", description: "Houses all major research laboratories and innovation spaces.", funnyDesc: "Where 'it works on my machine' is the most common phrase. The coffee machine here is the real MVP.", funnyImage: "🔬", floors: 4, facilities: ["AI Lab", "Quantum Lab", "Biomedical Lab", "Clean Room"], hours: "8:00 AM - 10:00 PM" },
+  "innovation": { name: "Innovation Hub", description: "Startup incubator and entrepreneurship center.", funnyDesc: "Where every student has an 'Uber for X' idea. The pitch room has heard 500 startup ideas, 3 actually launched.", funnyImage: "🚀", floors: 3, facilities: ["Co-working Space", "Prototyping Lab", "Pitch Room", "Mentoring Rooms"], hours: "9:00 AM - 9:00 PM" },
+};
+
+export const placementStats = [
+  { company: "Google", hires: 12, avgPackage: "₹32 LPA", logo: "🔵" },
+  { company: "Microsoft", hires: 18, avgPackage: "₹28 LPA", logo: "🟦" },
+  { company: "Amazon", hires: 25, avgPackage: "₹24 LPA", logo: "🟠" },
+  { company: "Goldman Sachs", hires: 8, avgPackage: "₹35 LPA", logo: "🔷" },
+  { company: "Deloitte", hires: 30, avgPackage: "₹12 LPA", logo: "🟢" },
+  { company: "TCS", hires: 120, avgPackage: "₹7 LPA", logo: "⬛" },
+  { company: "Infosys", hires: 95, avgPackage: "₹6.5 LPA", logo: "🔹" },
+  { company: "Flipkart", hires: 15, avgPackage: "₹22 LPA", logo: "🟡" },
+  { company: "Adobe", hires: 6, avgPackage: "₹30 LPA", logo: "🔴" },
+  { company: "Tesla", hires: 3, avgPackage: "₹40 LPA", logo: "⚡" },
+];
+
+export const placementHighlights = {
+  totalOffers: 2800,
+  highestPackage: "₹42 LPA",
+  averagePackage: "₹8.5 LPA",
+  placementRate: 95,
+  companiesVisited: 350,
+  internshipConversion: 78,
 };
