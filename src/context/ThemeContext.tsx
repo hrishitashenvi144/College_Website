@@ -37,7 +37,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("gu-theme", theme);
+    localStorage.setItem("diastas-theme", theme);
   }, [theme]);
 
   return (

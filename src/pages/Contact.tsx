@@ -102,7 +102,7 @@ const Contact = () => {
                   {[
                     { icon: MapPin, label: "Address", value: "Plot No.2, Sector 17-A, Greater Noida, UP 203201" },
                     { icon: Phone, label: "Phone", value: "+91-120-2344000" },
-                    { icon: Mail, label: "Email", value: "info@gu.edu.in" },
+                    { icon: Mail, label: "Email", value: "info@diastas.edu.in" },
                     { icon: Clock, label: "Office Hours", value: "Mon-Sat, 9AM - 5PM" },
                   ].map(({ icon: Icon, label, value }) => (
                     <GlowCard key={label} className="!p-4">
