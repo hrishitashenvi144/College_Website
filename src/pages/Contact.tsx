@@ -21,12 +21,12 @@ const contactSchema = z.object({
 });
 
 const deptContacts = [
-  { name: "Admissions Office", phone: "+91-120-2344000", email: "admissions@gu.edu.in" },
-  { name: "Academic Affairs", phone: "+91-120-2344001", email: "academics@gu.edu.in" },
-  { name: "Research Office", phone: "+91-120-2344002", email: "research@gu.edu.in" },
-  { name: "Alumni Relations", phone: "+91-120-2344003", email: "alumni@gu.edu.in" },
-  { name: "International Relations", phone: "+91-120-2344004", email: "international@gu.edu.in" },
-  { name: "Finance Department", phone: "+91-120-2344005", email: "finance@gu.edu.in" },
+  { name: "Admissions Office", phone: "+91-120-2344000", email: "admissions@diastas.edu.in" },
+  { name: "Academic Affairs", phone: "+91-120-2344001", email: "academics@diastas.edu.in" },
+  { name: "Research Office", phone: "+91-120-2344002", email: "research@diastas.edu.in" },
+  { name: "Alumni Relations", phone: "+91-120-2344003", email: "alumni@diastas.edu.in" },
+  { name: "International Relations", phone: "+91-120-2344004", email: "international@diastas.edu.in" },
+  { name: "Finance Department", phone: "+91-120-2344005", email: "finance@diastas.edu.in" },
 ];
 
 const Contact = () => {
@@ -94,7 +94,7 @@ const Contact = () => {
               <div className="space-y-4">
                 <div className="rounded-2xl overflow-hidden h-64">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.8!2d77.5022!3d28.4595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1e!2sGalgotias%20University!5e0!3m2!1sen!2sin!4v1"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.8!2d77.5022!3d28.4595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc1e!2sDiastas%20University!5e0!3m2!1sen!2sin!4v1"
                     width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
                   />
                 </div>
@@ -102,7 +102,7 @@ const Contact = () => {
                   {[
                     { icon: MapPin, label: "Address", value: "Plot No.2, Sector 17-A, Greater Noida, UP 203201" },
                     { icon: Phone, label: "Phone", value: "+91-120-2344000" },
-                    { icon: Mail, label: "Email", value: "info@gu.edu.in" },
+                    { icon: Mail, label: "Email", value: "info@diastas.edu.in" },
                     { icon: Clock, label: "Office Hours", value: "Mon-Sat, 9AM - 5PM" },
                   ].map(({ icon: Icon, label, value }) => (
                     <GlowCard key={label} className="!p-4">

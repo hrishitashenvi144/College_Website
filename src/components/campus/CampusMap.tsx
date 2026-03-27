@@ -58,19 +58,13 @@ const GREENS = [
 ];
 
 function StickFigure({ x, y, facing, walking }: { x: number; y: number; facing: number; walking: boolean }) {
-  const legAngle = walking ? "animate-[walk_0.4s_ease-in-out_infinite]" : "";
   return (
     <g transform={`translate(${x}, ${y}) scale(${facing < 0 ? -1 : 1}, 1)`}>
-      {/* body breathing */}
       <g className={walking ? "" : "animate-[bounce-gentle_2s_ease-in-out_infinite]"}>
-        {/* head */}
         <circle cx="0" cy="-18" r="5" fill="hsl(var(--primary))" />
-        {/* body/shirt */}
         <line x1="0" y1="-13" x2="0" y2="0" stroke="hsl(var(--primary))" strokeWidth="2.5" />
-        {/* arms */}
         <line x1="0" y1="-10" x2="-7" y2="-3" stroke="hsl(var(--foreground))" strokeWidth="1.5" />
         <line x1="0" y1="-10" x2="7" y2="-3" stroke="hsl(var(--foreground))" strokeWidth="1.5" />
-        {/* legs */}
         <line x1="0" y1="0" x2="-5" y2="10" stroke="hsl(var(--foreground))" strokeWidth="1.5" className={walking ? "origin-top animate-[legLeft_0.4s_ease-in-out_infinite]" : ""} />
         <line x1="0" y1="0" x2="5" y2="10" stroke="hsl(var(--foreground))" strokeWidth="1.5" className={walking ? "origin-top animate-[legRight_0.4s_ease-in-out_infinite]" : ""} />
       </g>
@@ -88,18 +82,17 @@ export default function CampusMap() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [hoverPos, setHoverPos] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
-  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [pan] = useState({ x: 0, y: 0 });
   const keysRef = useRef<Set<string>>(new Set());
   const mouseTargetRef = useRef<{ x: number; y: number } | null>(null);
   const rafRef = useRef<number>(0);
 
-  // Keyboard controls
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "w", "a", "s", "d"].includes(e.key)) {
         e.preventDefault();
         keysRef.current.add(e.key.toLowerCase());
-        mouseTargetRef.current = null; // keyboard overrides mouse
+        mouseTargetRef.current = null;
       }
     };
     const up = (e: KeyboardEvent) => {
@@ -110,7 +103,6 @@ export default function CampusMap() {
     return () => { window.removeEventListener("keydown", down); window.removeEventListener("keyup", up); };
   }, []);
 
-  // Animation loop
   useEffect(() => {
     let prev = performance.now();
     const loop = (now: number) => {
@@ -122,9 +114,7 @@ export default function CampusMap() {
       if (keys.has("arrowright") || keys.has("d")) dx += 3;
       if (keys.has("arrowup") || keys.has("w")) dy -= 3;
       if (keys.has("arrowdown") || keys.has("s")) dy += 3;
-
       const keyMoving = dx !== 0 || dy !== 0;
-
       setCharPos(pos => {
         let nx = pos.x, ny = pos.y;
         if (keyMoving) {
@@ -145,20 +135,11 @@ export default function CampusMap() {
         setWalking(isMoving);
         return { x: nx, y: ny };
       });
-
       rafRef.current = requestAnimationFrame(loop);
     };
     rafRef.current = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(rafRef.current);
   }, []);
-
-  const svgToScreen = useCallback((sx: number, sy: number) => {
-    if (!svgRef.current) return { x: sx, y: sy };
-    const rect = svgRef.current.getBoundingClientRect();
-    const scaleX = rect.width / (MAP_W / zoom);
-    const scaleY = rect.height / (MAP_H / zoom);
-    return { x: (sx + pan.x) * scaleX + rect.left, y: (sy + pan.y) * scaleY + rect.top };
-  }, [zoom, pan]);
 
   const handleSvgClick = useCallback((e: React.MouseEvent<SVGSVGElement>) => {
     if (!svgRef.current) return;
@@ -166,8 +147,6 @@ export default function CampusMap() {
     const vb = svgRef.current.viewBox.baseVal;
     const mx = ((e.clientX - rect.left) / rect.width) * vb.width + vb.x;
     const my = ((e.clientY - rect.top) / rect.height) * vb.height + vb.y;
-
-    // Check if clicked a building
     const clicked = BUILDINGS.find(b => mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h);
     if (clicked) {
       setSelectedId(prev => prev === clicked.id ? null : clicked.id);
@@ -183,7 +162,6 @@ export default function CampusMap() {
     const vb = svgRef.current.viewBox.baseVal;
     const mx = ((e.clientX - rect.left) / rect.width) * vb.width + vb.x;
     const my = ((e.clientY - rect.top) / rect.height) * vb.height + vb.y;
-
     const hovered = BUILDINGS.find(b => mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h);
     setHoveredId(hovered?.id ?? null);
     if (hovered) {
@@ -191,7 +169,6 @@ export default function CampusMap() {
     }
   }, []);
 
-  // Check if character is inside a building
   useEffect(() => {
     const inside = BUILDINGS.find(b =>
       charPos.x >= b.x && charPos.x <= b.x + b.w &&
@@ -210,7 +187,6 @@ export default function CampusMap() {
 
   return (
     <div ref={containerRef} className="relative w-full" style={{ height: "min(70vh, 600px)" }}>
-      {/* Map */}
       <svg
         ref={svgRef}
         viewBox={`${vbX} ${vbY} ${MAP_W / zoom} ${MAP_H / zoom}`}
@@ -220,7 +196,6 @@ export default function CampusMap() {
         onMouseLeave={() => setHoveredId(null)}
         style={{ cursor: "crosshair" }}
       >
-        {/* Background grid */}
         <defs>
           <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(var(--border))" strokeWidth="0.5" opacity="0.4" />
@@ -228,25 +203,21 @@ export default function CampusMap() {
         </defs>
         <rect x="0" y="0" width={MAP_W} height={MAP_H} fill="url(#grid)" />
 
-        {/* Green areas */}
         {GREENS.map((g, i) => (
           <rect key={`g${i}`} x={g.x} y={g.y} width={g.w} height={g.h} rx={g.r}
             fill="hsl(142,71%,45%)" opacity="0.15" />
         ))}
 
-        {/* Pathways */}
         {PATHWAYS.map((p, i) => (
           <line key={`p${i}`} x1={p.x1} y1={p.y1} x2={p.x2} y2={p.y2}
             stroke="hsl(var(--muted-foreground))" strokeWidth="3" opacity="0.2" strokeDasharray="6 4" />
         ))}
 
-        {/* Buildings */}
         {BUILDINGS.map(b => {
           const isSelected = selectedId === b.id;
           const isHovered = hoveredId === b.id;
           return (
             <g key={b.id} style={{ cursor: "pointer" }}>
-              {/* Glow behind selected */}
               {isSelected && (
                 <rect x={b.x - 4} y={b.y - 4} width={b.w + 8} height={b.h + 8} rx="10"
                   fill="none" stroke={b.color} strokeWidth="3" opacity="0.6"
@@ -273,18 +244,23 @@ export default function CampusMap() {
           );
         })}
 
-        {/* Stick figure */}
         <StickFigure x={charPos.x} y={charPos.y} facing={facing} walking={walking} />
       </svg>
 
-      {/* Hover tooltip */}
+      {/* Hover tooltip with funny image and description */}
       {hoveredBuilding && hoveredId !== selectedId && (
         <div
-          className="fixed z-50 glass px-3 py-2 pointer-events-none"
-          style={{ left: hoverPos.x + 12, top: hoverPos.y - 40 }}
+          className="fixed z-50 glass px-4 py-3 pointer-events-none max-w-[240px]"
+          style={{ left: hoverPos.x + 16, top: hoverPos.y - 60 }}
         >
-          <p className="text-xs font-semibold text-foreground">{hoveredBuilding.name}</p>
-          <p className="text-[10px] text-muted-foreground">{hoveredBuilding.floors} Floors · {hoveredBuilding.hours}</p>
+          <div className="flex items-start gap-3">
+            <span className="text-3xl leading-none">{hoveredBuilding.funnyImage}</span>
+            <div>
+              <p className="text-xs font-bold text-foreground mb-1">{hoveredBuilding.name}</p>
+              <p className="text-[10px] text-muted-foreground leading-tight">{hoveredBuilding.funnyDesc}</p>
+              <p className="text-[9px] text-primary mt-1">{hoveredBuilding.floors} Floors · {hoveredBuilding.hours}</p>
+            </div>
+          </div>
         </div>
       )}
 
@@ -298,7 +274,6 @@ export default function CampusMap() {
         </button>
       </div>
 
-      {/* Controls hint */}
       <div className="absolute bottom-3 left-3 glass px-3 py-1.5 text-[10px] text-muted-foreground">
         Click to move · WASD/Arrows · Click buildings to explore
       </div>
@@ -334,9 +309,10 @@ export default function CampusMap() {
               <X size={18} />
             </button>
             <div className="flex items-center gap-2 mb-3 mt-1">
-              <Building2 size={18} className="text-primary" />
+              <span className="text-3xl">{selectedBuilding.funnyImage}</span>
               <h3 className="font-heading text-lg font-bold text-foreground">{selectedBuilding.name}</h3>
             </div>
+            <p className="text-sm text-primary/80 italic mb-3">"{selectedBuilding.funnyDesc}"</p>
             <p className="text-sm text-muted-foreground mb-4">{selectedBuilding.description}</p>
             <div className="flex gap-4 mb-4 text-sm">
               <span className="flex items-center gap-1 text-muted-foreground"><Layers size={14} />{selectedBuilding.floors} Floors</span>

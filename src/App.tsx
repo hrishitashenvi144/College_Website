@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@/context/ThemeContext";
 import CustomCursor from "@/components/ui/CustomCursor";
+import ChatBot from "@/components/mascot/ChatBot";
 
 const Home = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
@@ -15,6 +16,7 @@ const Admissions = lazy(() => import("./pages/Admissions"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Alumni = lazy(() => import("./pages/Alumni"));
 const Campus = lazy(() => import("./pages/Campus"));
+const Placements = lazy(() => import("./pages/Placements"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -43,9 +45,11 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/alumni" element={<Alumni />} />
               <Route path="/campus" element={<Campus />} />
+              <Route path="/placements" element={<Placements />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
+          <ChatBot />
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>

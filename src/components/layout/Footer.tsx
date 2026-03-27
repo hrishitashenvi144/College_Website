@@ -7,8 +7,8 @@ const Footer = () => (
       <div className="grid md:grid-cols-3 gap-10">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center font-heading font-bold text-primary-foreground text-lg">GU</div>
-            <span className="font-heading font-semibold text-foreground">Galgotias University</span>
+            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center font-heading font-bold text-primary-foreground text-lg">D</div>
+            <span className="font-heading font-semibold text-foreground">Diastas University</span>
           </div>
           <p className="text-muted-foreground text-sm mb-4">Shaping Minds. Building Futures. A premier institution committed to excellence in education, research, and innovation.</p>
           <div className="flex gap-3">
@@ -26,7 +26,7 @@ const Footer = () => (
         <div>
           <h4 className="font-heading font-semibold mb-4 text-foreground">Quick Links</h4>
           <div className="grid grid-cols-2 gap-2">
-            {["Academics", "Research", "Admissions", "Campus", "Alumni", "Contact", "About", "Careers"].map((l) => (
+            {["Academics", "Research", "Admissions", "Placements", "Campus", "Alumni", "Contact", "About"].map((l) => (
               <Link key={l} to={`/${l.toLowerCase()}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{l}</Link>
             ))}
           </div>
@@ -50,7 +50,7 @@ const Footer = () => (
       </div>
 
       <div className="mt-10 pt-6 border-t border-border text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} Galgotias University. All rights reserved.
+        © {new Date().getFullYear()} Diastas University. All rights reserved.
       </div>
     </div>
   </footer>

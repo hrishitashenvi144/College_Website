@@ -46,7 +46,7 @@ const Alumni = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <AStat label="Alumni in Countries" value={60} suffix="+" />
             <AStat label="CEOs & Founders" value={500} suffix="+" />
-            <AStat label="Donated to GU" value={200} suffix="Cr+" />
+            <AStat label="Donated to Diastas" value={200} suffix="Cr+" />
             <AStat label="Alumni Mentors" value={1000} suffix="+" />
           </div>
         </section>
